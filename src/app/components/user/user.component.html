@@ -1,7 +1,31 @@
 <h1>{{ title }}</h1>
 
-<div class="title">List of Users</div>
-<div *ngFor="let user of users">
-  <div>{{ user.name }}</div>
-  <div>{{ user.dateCreated }}</div>
-</div>
+<div class="mt-5">List of Users</div>
+<table class="table table-borderless table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Username</th>
+      <th scope="col">Email</th>
+      <th class="col">Date Created</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let user of users">
+    <tr>
+      <td>{{ user.name }}</td>
+      <td>{{ user.username }}</td>
+      <td>{{ user.user_email }}</td>
+      <td>{{ user.date_created }}</td>
+      <div class="d-flex gap-3 justify-content-end">
+        <fa-icon
+          [ngStyle]="{ cursor: 'pointer', color: 'blue' }"
+          [icon]="faPen"
+        ></fa-icon>
+        <fa-icon
+          [ngStyle]="{ cursor: 'pointer', color: 'red' }"
+          [icon]="faTimes"
+        ></fa-icon>
+      </div>
+    </tr>
+  </tbody>
+</table>

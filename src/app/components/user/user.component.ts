@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
+import { faTimes, faPen } from '@fortawesome/free-solid-svg-icons';
 import { User } from 'src/app/interface/User';
 
 @Component({
@@ -10,6 +11,8 @@ import { User } from 'src/app/interface/User';
 export class UserComponent implements OnInit {
   title: string = 'Registration System';
   users: User[] = [];
+  faTimes = faTimes;
+  faPen = faPen;
 
   constructor(private userService: UserService) {}
 
