@@ -23,4 +23,18 @@ export class UserComponent implements OnInit {
   getUser() {
     this.userService.getUser().subscribe((users) => (this.users = users));
   }
+
+  deleteUser(user: User) {
+    this.userService
+      .deleteUser(user)
+      .subscribe(
+        () => (this.users = this.users.filter((u) => u.id !== user.id))
+      );
+  }
+
+  creatUser(user: User) {
+    this.userService
+      .createUser(user)
+      .subscribe((user) => this.users.push(user));
+  }
 }

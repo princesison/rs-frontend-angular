@@ -3,7 +3,7 @@ import { Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { User } from '../interface/User';
 
-const options = {
+const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json',
   }),
@@ -22,7 +22,12 @@ export class UserService {
     return this.http.get<User[]>(this.apiUrl);
   }
 
-  createUser(): Observable<User> {
-    return this.http.post<User>(this.apiUrl, this.users, options);
+  deleteUser(user: User): Observable<User> {
+    const url = `${this.apiUrl}/${user.id}`;
+    return this.http.delete<User>(url);
+  }
+
+  createUser(user: User): Observable<User> {
+    return this.http.post<User>(this.apiUrl, this.users, httpOptions);
   }
 }
