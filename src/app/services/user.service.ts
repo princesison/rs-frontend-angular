@@ -28,6 +28,6 @@ export class UserService {
   }
 
   createUser(user: User): Observable<User> {
-    return this.http.post<User>(this.apiUrl, this.users, httpOptions);
+    return this.http.post<User>(this.apiUrl, user, httpOptions);
   }
 }

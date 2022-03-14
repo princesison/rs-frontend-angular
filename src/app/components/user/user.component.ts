@@ -11,8 +11,6 @@ import { User } from 'src/app/interface/User';
 export class UserComponent implements OnInit {
   title: string = 'Registration System';
   users: User[] = [];
-  faTimes = faTimes;
-  faPen = faPen;
 
   constructor(private userService: UserService) {}
 
@@ -22,14 +20,6 @@ export class UserComponent implements OnInit {
 
   getUser() {
     this.userService.getUser().subscribe((users) => (this.users = users));
-  }
-
-  deleteUser(user: User) {
-    this.userService
-      .deleteUser(user)
-      .subscribe(
-        () => (this.users = this.users.filter((u) => u.id !== user.id))
-      );
   }
 
   creatUser(user: User) {
